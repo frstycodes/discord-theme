@@ -23,33 +23,6 @@
         "guildsList userPanel page" !important;
 }
 
-/*
- .bar_c38106 {
-    width: calc(100% - 300px) !important;
-    margin-left: auto;
- } */
-
-/* .header_f37cb1 {
-    width:300px;
-    background:red !important;
-    max-height:10px;
-    position:fixed;
-    opacity: 0;
-    top:2px;
-    left:0;
-    z-index: 999;
-    h2 {
-        font-size:0
-    }
-    &>div:first-child {
-        width: 50px;
-    }
-    &>.headerButton_f37cb1 {
-        z-index:100;
-    }
-    /* display: none !important; */
-/* } */
-
 div[data-windows="true"] {
     height: 10px !important;
 
@@ -61,7 +34,7 @@ div[data-windows="true"] {
         /* opacity:0; */
         display: relative;
         &::before {
-            content: "frsty";
+            /* content: "frsty"; */
             font-family: var(--font-code);
             padding-left: 14px;
             font-size: 15px;
@@ -128,9 +101,9 @@ body {
     .base_c48ade /* base grid */ {
         display: grid;
         grid-template-columns: [start] min-content [guildsEnd] min-content [channelsEnd] 1fr [end];
-        grid-template-rows: [top] var(
-                --custom-app-top-bar-height
-            ) [titleBarEnd] min-content [noticeEnd] 1fr [contentEnd] min-content [end];
+        grid-template-rows:
+            [top] var(--custom-app-top-bar-height)
+            [titleBarEnd] min-content [noticeEnd] 1fr [contentEnd] min-content [end];
         grid-template-areas:
             "titleBar titleBar titleBar"
             "guildsList notice notice"
