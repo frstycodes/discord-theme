@@ -1,71 +1,132 @@
-@import url("https://fonts.googleapis.com/css2?family=figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
 :root {
     container-name: root;
     --custom-guild-list-padding: 12px;
     --panel-backdrop-filter: none;
 
-    --background-base-lower: --bg-4;
+    --background-base-lower: --bg-3;
     --custom-app-top-bar-height: 24px;
+    --top-right-text: "frsty";
+
+    --font-code: "Jetbrains Mono", "monospace";
+    --font: "figtree";
+    --background-code: var(--bg-3) !important;
+
+    --gap: 8px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
 }
 
+body {
+    container-name: body;
+}
+
+/* Servers List  */
+.guilds_c48ade {
+    border-width: 0 !important;
+}
+
+/* Channels list  */
+.sidebarList_c48ade {
+    border-width: 0 !important;
+}
+
+/* User Panel */
 .panels_c48ade {
+    border-width: 0 !important;
     max-width: calc(
         var(--custom-guild-sidebar-width) - var(--custom-guild-list-width)
     ) !important;
+
+    /* Voice Connected Text  */
+    .rtcConnectionStatusLabel__06d62 {
+        .text-md\/medium_cf4812 {
+            font-size: 14px;
+        }
+    }
+
+    /* Buttons  */
+    .actionButtons_e131a9 {
+        button {
+            background: var(--bg-3) !important;
+            /* border-color: transparent !important; */
+            &:hover {
+                background: var(--bg-2) !important;
+            }
+            .lottieIcon__5eb9b {
+                height: 16px !important;
+                width: 16px !important;
+            }
+        }
+    }
 }
 
+/* Grid Layout  */
 .base_c48ade {
     grid-template-areas:
         "titleBar titleBar titleBar"
         "guildsList notice notice"
         "guildsList channelsList page"
         "guildsList userPanel page" !important;
-}
 
-div[data-windows="true"] {
-    height: 10px !important;
+    .page_c48ade {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
 
-    & > div:first-child {
-        justify-content: start;
-        & > * {
-            opacity: 0;
+        .subtitleContainer_f75fb0 {
+            border-radius: 0 !important;
+            margin-bottom: 0 !important;
+            border-width: 0 !important;
         }
-        /* opacity:0; */
-        display: relative;
-        &::before {
-            /* content: "frsty"; */
-            font-family: var(--font-code);
-            padding-left: 14px;
-            font-size: 15px;
-            font-weight: 900;
-            display: absolute;
-            color: var(--text-4);
-        }
-    }
 
-    & > div:last-child {
-        gap: 4px;
+        .content_f75fb0 {
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
+            gap: 0;
+            overflow: hidden;
 
-        & > div:first-child,
-        & > a {
-            svg {
-                height: 16px;
+            .chatContent_f75fb0 {
+                border-radius: 0;
+                border-width: 0;
+                .channelTextArea_f75fb0 {
+                    margin-bottom: 12px;
+                }
+            }
+            .container_c8ffbb {
+                border-radius: 0;
+                margin-left: 0;
+                border-width: 0;
             }
         }
     }
 }
+.header_f37cb1 {
+    border-width: 0 !important;
+}
 
-body {
-    container-name: body;
+/* Title bar */
+.bar_c38106 {
+    padding-left: 20px;
 
-    /* font, change to '' for default discord font */
-    --font-code: "Jetbrains Mono", "monospace";
-    --font: "Inter";
+    .title_c38106 {
+        justify-content: start;
+        /* Server name in titlebar  */
+        position: relative;
+        &::after {
+            content: var(--top-right-text);
+            top: 3px;
+            left: 0;
+            position: absolute;
+            color: var(--text-4);
+            font-weight: 900;
+        }
 
-    /* sizes */
-    --gap: 8px; /* spacing between panels */
-    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+        /* Server Icon and Title  */
+        .icon_f34534,
+        .defaultColor__4bd52 {
+            opacity: 0;
+            /* display: none; */
+        }
+    }
 }
 
 .visual-refresh {
@@ -92,7 +153,7 @@ body {
     .container_f369db /* forum */,
     .chat_fb64c9 /* new thread panel */,
     .container_a592e1 /* server discovery */ {
-        background-color: var(--background-base-lower);
+        background-color: var(--background-base-lowest);
         border-radius: var(--radius-lg);
         border: 1px solid var(--border-subtle);
         backdrop-filter: var(--panel-backdrop-filter);
@@ -622,9 +683,9 @@ body {
         100%,
         0.1
     ); /* neutral border color of buttons */
-    --border-light: transparent;
+    /* --border-light: transparent;
     --border: transparent;
-    --button-border: transparent;
+    --button-border: transparent; */
 
     /* base colors */
     --red-1: hsl(360, 90%, 60%);
@@ -1394,9 +1455,6 @@ body {
         .title_c38106 {
             padding-left: var(--gap);
             justify-content: flex-start;
-        }
-        .title__85643 {
-            gap: 4px;
         }
         /* style top bar title */
         .title__85643 .icon_f34534 {
